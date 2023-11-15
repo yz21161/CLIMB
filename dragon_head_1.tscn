@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn2oedohx7qn0"]
+
+[ext_resource type="Texture2D" uid="uid://bpto0l314vjce" path="res://Dragon head.png" id="1_snkik"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb633"]
+size = Vector2(34.0001, 40.9999)
+
+[sub_resource type="Animation" id="Animation_e22gs"]
+resource_name = "bang"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1736, -356), Vector2(826, -356), Vector2(1736, -356)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l683b"]
+_data = {
+"bang": SubResource("Animation_e22gs")
+}
+
+[node name="dragon head1" type="AnimatableBody2D"]
+position = Vector2(1736, -356)
+
+[node name="DragonHead" type="Sprite2D" parent="."]
+position = Vector2(9, 23)
+rotation = 1.5708
+texture = ExtResource("1_snkik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(21, 16)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_eb633")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l683b")
+}
