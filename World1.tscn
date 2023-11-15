@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bc0ryspr2i2nb" path="res://background.png" id="1_7o1cv"]
 [ext_resource type="PackedScene" uid="uid://dn1mgfd6dqo7c" path="res://mage.tscn" id="1_lm4co"]
 [ext_resource type="Texture2D" uid="uid://cmc4fysoknq27" path="res://Dungeon Stone.png" id="3_jpstw"]
-[ext_resource type="Texture2D" uid="uid://cjb4dr175whr8" path="res://Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="4_0r4hd"]
 [ext_resource type="PackedScene" uid="uid://daghis1151c0t" path="res://Slime.tscn" id="4_tlrag"]
+[ext_resource type="PackedScene" uid="uid://cv5ua7ia5mfy4" path="res://platformcha.tscn" id="6_hx506"]
 [ext_resource type="PackedScene" uid="uid://c2p211sdya2lm" path="res://test_enemy.tscn" id="6_ukedd"]
-[ext_resource type="PackedScene" uid="uid://b4wcqwa3do87c" path="res://platform.tscn" id="11_t3mnh"]
+[ext_resource type="Script" path="res://platformcha.gd" id="7_hyyeo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0jfj3"]
 texture = ExtResource("3_jpstw")
@@ -24,7 +24,6 @@ texture_region_size = Vector2i(32, 32)
 0:0/2/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_61s06"]
-texture = ExtResource("4_0r4hd")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -469,12 +468,13 @@ offset_left = -3085.0
 offset_top = -5413.0
 offset_right = 2453.0
 offset_bottom = 773.0
+scale = Vector2(1.0011, 1)
 texture = ExtResource("1_7o1cv")
 expand_mode = 4
 stretch_mode = 1
 
 [node name="Mage" parent="." instance=ExtResource("1_lm4co")]
-position = Vector2(1, -2)
+position = Vector2(1, 41)
 scale = Vector2(0.779693, 0.760642)
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -511,8 +511,9 @@ position = Vector2(-49, 250)
 position = Vector2(15.5, -2929)
 shape = SubResource("RectangleShape2D_p1xoh")
 
-[node name="AnimatableBody2D" parent="." instance=ExtResource("11_t3mnh")]
-position = Vector2(-447, -18)
+[node name="platformcha" parent="." instance=ExtResource("6_hx506")]
+scale = Vector2(1.00539, 0.946419)
+script = ExtResource("7_hyyeo")
 
 [connection signal="body_entered" from="deadzone" to="Mage" method="_on_deadzone_body_entered"]
 [connection signal="body_entered" from="freefall" to="Mage" method="_on_freefall_body_entered"]
