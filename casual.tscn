@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dae4in5bnqykr"]
+[gd_scene load_steps=38 format=3 uid="uid://dae4in5bnqykr"]
 
 [ext_resource type="PackedScene" uid="uid://b4wcqwa3do87c" path="res://platform.tscn" id="1_k6x21"]
 [ext_resource type="Texture2D" uid="uid://c30y1gwlrvjf7" path="res://Sprute.png" id="1_svore"]
@@ -10,11 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://dvpymlyufdog" path="res://Spike.png" id="6_uswh0"]
 [ext_resource type="PackedScene" uid="uid://dpxdrwm6uv6o" path="res://arrow.tscn" id="7_imje3"]
 [ext_resource type="Script" path="res://arrow.gd" id="8_trwcq"]
-[ext_resource type="PackedScene" uid="uid://bgforqvax8e6p" path="res://s_2_bridge_2.tscn" id="15_byxs8"]
-[ext_resource type="Texture2D" uid="uid://bpto0l314vjce" path="res://Dragon head.png" id="15_qcutj"]
-[ext_resource type="Script" path="res://s_2_bridge_2.gd" id="16_60073"]
-[ext_resource type="PackedScene" uid="uid://cmhx8sp1jd8r1" path="res://s_2_bridge_3.tscn" id="17_sj7hp"]
-[ext_resource type="Script" path="res://s_2_bridge_3.gd" id="18_r1ltl"]
+[ext_resource type="PackedScene" uid="uid://bn2oedohx7qn0" path="res://dragon_head_1.tscn" id="15_0i4ni"]
+[ext_resource type="PackedScene" uid="uid://dwg732i2y5ems" path="res://dragon_head_3.tscn" id="15_xd0ur"]
+[ext_resource type="PackedScene" uid="uid://dh5bcjbqjem82" path="res://dragon_head_4.tscn" id="16_dhjqf"]
+[ext_resource type="Script" path="res://dragon_head_3.gd" id="16_mo7kr"]
+[ext_resource type="Script" path="res://dragon_head_1.gd" id="16_ukwnj"]
+[ext_resource type="PackedScene" uid="uid://dt25wnoa330p4" path="res://dragon_head_2.tscn" id="17_m27gc"]
+[ext_resource type="Script" path="res://dragon_head_4.gd" id="18_00upk"]
+[ext_resource type="Script" path="res://dragon_head_2.gd" id="18_0uuqv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mgppl"]
 texture = ExtResource("1_svore")
@@ -1836,10 +1839,6 @@ shape = SubResource("RectangleShape2D_7ivhq")
 [node name="spike" parent="." instance=ExtResource("6_q1nvu")]
 position = Vector2(1110, -112)
 
-[node name="spike7" parent="." instance=ExtResource("6_q1nvu")]
-position = Vector2(1020, -111)
-scale = Vector2(1, 0.938477)
-
 [node name="floatingrock2" parent="." instance=ExtResource("4_tlt0v")]
 position = Vector2(2188, -255)
 
@@ -1853,13 +1852,14 @@ position = Vector2(1837, -103)
 position = Vector2(1961, -136)
 
 [node name="arrow" parent="." instance=ExtResource("7_imje3")]
-position = Vector2(1928, -337)
+position = Vector2(1828, -337)
 script = ExtResource("8_trwcq")
 
 [node name="arrow" type="Area2D" parent="arrow"]
+position = Vector2(-280, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="arrow/arrow"]
-position = Vector2(0, -1)
+position = Vector2(280, 1)
 shape = SubResource("RectangleShape2D_87mgb")
 
 [node name="Shooter" type="Sprite2D" parent="."]
@@ -1902,12 +1902,6 @@ position = Vector2(-66, 59.3548)
 position = Vector2(65.625, -53.1612)
 shape = SubResource("RectangleShape2D_wsfwt")
 
-[node name="s2bridge2" parent="." instance=ExtResource("15_byxs8")]
-script = ExtResource("16_60073")
-
-[node name="s2bridge3" parent="." instance=ExtResource("17_sj7hp")]
-script = ExtResource("18_r1ltl")
-
 [node name="deadzone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="deadzone"]
@@ -1920,19 +1914,22 @@ position = Vector2(1200, -112)
 [node name="spike6" parent="." instance=ExtResource("6_q1nvu")]
 position = Vector2(1170, -112)
 
-[node name="DragonHead2" type="Sprite2D" parent="."]
-position = Vector2(1000, -337)
-rotation = 1.5708
-texture = ExtResource("15_qcutj")
-flip_v = true
-
-[node name="DragonHead" type="Sprite2D" parent="."]
-position = Vector2(1715, -335)
-rotation = 1.5708
-texture = ExtResource("15_qcutj")
-
 [node name="AnimatableBody2D" parent="." instance=ExtResource("1_k6x21")]
-position = Vector2(1958, -503)
+position = Vector2(1949, -961)
+
+[node name="dragon head1" parent="." instance=ExtResource("15_0i4ni")]
+position = Vector2(1615, -352)
+script = ExtResource("16_ukwnj")
+
+[node name="dragon head 2" parent="." instance=ExtResource("17_m27gc")]
+script = ExtResource("18_0uuqv")
+
+[node name="dragon head3" parent="." instance=ExtResource("15_xd0ur")]
+position = Vector2(1625, -364)
+script = ExtResource("16_mo7kr")
+
+[node name="dragon head4" parent="." instance=ExtResource("16_dhjqf")]
+script = ExtResource("18_00upk")
 
 [connection signal="body_entered" from="floatingrock/trigger" to="Mage" method="_on_trigger_body_entered"]
 [connection signal="body_entered" from="arrow/arrow" to="Mage" method="_on_arrow_body_entered"]
