@@ -164,8 +164,7 @@ func _on_arrow_body_entered(body):
 	global_position = Vector2(velocity.x,velocity.y)
 
 
-
-func _on_kill_body_entered(body):
-	velocity.x = 0
-	velocity.y = 0
-	global_position = Vector2(velocity.x,velocity.y)
+func _on_boost_area_body_entered(body):
+	var JUMP_VELOCITY = -400
+	if animation_locked: true
+	JUMP_VELOCITY = -250
