@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dae4in5bnqykr"]
+
 
 [ext_resource type="PackedScene" uid="uid://bn2oedohx7qn0" path="res://dragon_head_1.tscn" id="1_1mq6g"]
 [ext_resource type="PackedScene" uid="uid://b4wcqwa3do87c" path="res://platform.tscn" id="1_k6x21"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://dragon_head_4.gd" id="8_3ax7y"]
 [ext_resource type="Script" path="res://arrow.gd" id="8_trwcq"]
 [ext_resource type="PackedScene" uid="uid://bgforqvax8e6p" path="res://s_2_bridge_2.tscn" id="15_byxs8"]
+
 [ext_resource type="Script" path="res://s_2_bridge_2.gd" id="16_60073"]
 [ext_resource type="Texture2D" uid="uid://cf07cpi4wfwrp" path="res://Stage_2 platform01.png" id="16_xytds"]
 [ext_resource type="Texture2D" uid="uid://bev6kf0dqp5ib" path="res://stage2bridge.png" id="17_2bdkg"]
@@ -1881,11 +1882,13 @@ position = Vector2(1837, -103)
 position = Vector2(1961, -136)
 
 [node name="arrow" parent="." instance=ExtResource("7_imje3")]
+
 script = ExtResource("8_trwcq")
 
 [node name="arrow" type="Area2D" parent="arrow"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="arrow/arrow"]
+
 shape = SubResource("RectangleShape2D_87mgb")
 
 [node name="Shooter" type="Sprite2D" parent="."]
@@ -1945,6 +1948,17 @@ position = Vector2(1200, -112)
 
 [node name="spike6" parent="." instance=ExtResource("6_q1nvu")]
 position = Vector2(1170, -112)
+
+[node name="DragonHead2" type="Sprite2D" parent="."]
+position = Vector2(1000, -337)
+rotation = 1.5708
+texture = ExtResource("15_qcutj")
+flip_v = true
+
+[node name="DragonHead" type="Sprite2D" parent="."]
+position = Vector2(1715, -335)
+rotation = 1.5708
+texture = ExtResource("15_qcutj")
 
 [node name="AnimatableBody2D" parent="." instance=ExtResource("1_k6x21")]
 position = Vector2(1958, -503)
