@@ -1,17 +1,25 @@
-[gd_scene load_steps=40 format=3 uid="uid://dae4in5bnqykr"]
 
+
+[ext_resource type="PackedScene" uid="uid://bn2oedohx7qn0" path="res://dragon_head_1.tscn" id="1_1mq6g"]
 [ext_resource type="PackedScene" uid="uid://b4wcqwa3do87c" path="res://platform.tscn" id="1_k6x21"]
 [ext_resource type="Texture2D" uid="uid://c30y1gwlrvjf7" path="res://Sprute.png" id="1_svore"]
+[ext_resource type="Script" path="res://dragon_head_1.gd" id="2_p8r0b"]
 [ext_resource type="Texture2D" uid="uid://cmc4fysoknq27" path="res://Dungeon Stone.png" id="2_qs3p3"]
+[ext_resource type="PackedScene" uid="uid://dt25wnoa330p4" path="res://dragon_head_2.tscn" id="3_562kd"]
 [ext_resource type="PackedScene" uid="uid://dn1mgfd6dqo7c" path="res://mage.tscn" id="3_r8j6f"]
+[ext_resource type="Script" path="res://dragon_head_2.gd" id="4_aee1f"]
 [ext_resource type="PackedScene" uid="uid://dfihgk48qjvpu" path="res://floatingrock.tscn" id="4_tlt0v"]
+[ext_resource type="PackedScene" uid="uid://dwg732i2y5ems" path="res://dragon_head_3.tscn" id="5_baol0"]
+[ext_resource type="Script" path="res://dragon_head_3.gd" id="6_5cinj"]
 [ext_resource type="Texture2D" uid="uid://dg245jm6mwm0h" path="res://shooter.png" id="6_ew8p4"]
 [ext_resource type="PackedScene" uid="uid://dof5qtdrwgwr1" path="res://spike.tscn" id="6_q1nvu"]
 [ext_resource type="Texture2D" uid="uid://dvpymlyufdog" path="res://Spike.png" id="6_uswh0"]
+[ext_resource type="PackedScene" uid="uid://dh5bcjbqjem82" path="res://dragon_head_4.tscn" id="7_5eo4j"]
 [ext_resource type="PackedScene" uid="uid://dpxdrwm6uv6o" path="res://arrow.tscn" id="7_imje3"]
+[ext_resource type="Script" path="res://dragon_head_4.gd" id="8_3ax7y"]
 [ext_resource type="Script" path="res://arrow.gd" id="8_trwcq"]
 [ext_resource type="PackedScene" uid="uid://bgforqvax8e6p" path="res://s_2_bridge_2.tscn" id="15_byxs8"]
-[ext_resource type="Texture2D" uid="uid://bpto0l314vjce" path="res://Dragon head.png" id="15_qcutj"]
+
 [ext_resource type="Script" path="res://s_2_bridge_2.gd" id="16_60073"]
 [ext_resource type="Texture2D" uid="uid://cf07cpi4wfwrp" path="res://Stage_2 platform01.png" id="16_xytds"]
 [ext_resource type="Texture2D" uid="uid://bev6kf0dqp5ib" path="res://stage2bridge.png" id="17_2bdkg"]
@@ -1819,6 +1827,18 @@ size = Vector2(106.333, 63)
 
 [node name="Node2D" type="Node2D"]
 
+[node name="dragon head1" parent="." instance=ExtResource("1_1mq6g")]
+script = ExtResource("2_p8r0b")
+
+[node name="dragon head 2" parent="." instance=ExtResource("3_562kd")]
+script = ExtResource("4_aee1f")
+
+[node name="dragon head3" parent="." instance=ExtResource("5_baol0")]
+script = ExtResource("6_5cinj")
+
+[node name="dragon head4" parent="." instance=ExtResource("7_5eo4j")]
+script = ExtResource("8_3ax7y")
+
 [node name="AnimatableBody2D2" parent="." instance=ExtResource("1_k6x21")]
 position = Vector2(1716.38, -343.118)
 
@@ -1862,13 +1882,13 @@ position = Vector2(1837, -103)
 position = Vector2(1961, -136)
 
 [node name="arrow" parent="." instance=ExtResource("7_imje3")]
-position = Vector2(1928, -337)
+
 script = ExtResource("8_trwcq")
 
 [node name="arrow" type="Area2D" parent="arrow"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="arrow/arrow"]
-position = Vector2(0, -1)
+
 shape = SubResource("RectangleShape2D_87mgb")
 
 [node name="Shooter" type="Sprite2D" parent="."]
